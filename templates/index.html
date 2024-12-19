@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brain Hemorrhage Detection Tool (Prototype)</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+    <header>
+        <h1>Brain Hemorrhage Detection Tool (Prototype)</h1>
+        <nav>
+            <ul>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#upload">Upload CT Scan</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="how-it-works">
+            <h2>How It Works</h2>
+            <p>
+                This prototype tool allows you to upload a CT scan image for analysis. Our machine learning and deep
+                learning models will attempt to identify potential brain hemorrhages. Please note: This tool is for
+                demonstration purposes only and not intended for medical diagnosis.
+            </p>
+        </section>
+
+        <section id="upload">
+            <h2>Upload CT Scan</h2>
+            <p><em>Note: This tool is in its prototype phase and may not provide accurate results. Always consult a
+                    medical professional for proper diagnosis.</em></p>
+
+            <form id="uploadForm" action="/upload" method="post" enctype="multipart/form-data">
+                <div class="drop-zone" id="dropZone">
+                    <p>Drag and drop your CT scan image here</p>
+                    <input type="file" id="fileInput" name="file" class="file-input" accept=".jpg, .jpeg, .png, .dcm">
+                </div>
+                <button type="submit" id="uploadButton" style="display: none;">Upload</button>
+            </form>
+
+            <div id="imagePreview" style="display: none; text-align: center; margin: 0 auto;margin-top: 10px;">
+                <img id="previewImg" src="#" alt="Uploaded Image" style="max-width: 100%; height: auto;" />
+            </div>
+            
+
+            <form id="detectForm" action="/detect" method="post" style="display: none;margin-top: 25px;">
+            </form>                    
+
+
+            <p id="statusMessage"></p>
+        </section>
+
+        <section id="status">
+            <p id="statusMessage"></p>
+        </section>
+    </main>
+
+    <footer>
+        <p style="color:#fff;">&copy; 2024 Brain Hemorrhage Detection Tool (Prototype).</p>
+        <p style="color:#fff;">
+            This tool is for research and educational purposes only. Contact us at
+            <a href="mailto:amq4319@gmail.com">amq4319@gmail.com</a>
+            <a href="mailto: sarah.almashagbehh@gmail.com"> sarah.almashagbehh@gmail.com</a>
+        </p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+</body>
+
+</html>
